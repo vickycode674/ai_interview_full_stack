@@ -60,7 +60,6 @@ const page = async () => {
         {dummyInterviews.map((interview)=>(
           <InterviewCard {... interview} key={interview.id}/>
         ))}
-                <p>you haven&apos;t taken any interviews yet</p>
         <p>There are no interviews available right now</p>
 
        </div>
