@@ -1,7 +1,9 @@
 "use server";
 
 import { auth, db } from "@/firebase/admin";
+import { CollectionGroup, CollectionReference, Query } from "firebase-admin/firestore";
 import { cookies } from "next/headers";
+import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 
 // Session duration (1 week)
 const SESSION_DURATION = 60 * 60 * 24 * 7;
@@ -111,7 +113,6 @@ export async function getCurrentUser(): Promise<User | null> {
       .collection("users")
       .doc(decodedClaims.uid)
       .get();
-      console.log("here is the userrecords broooooooo====================",userRecord);
     if (!userRecord.exists) return null;
 
     return {
