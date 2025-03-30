@@ -111,6 +111,7 @@ export async function getCurrentUser(): Promise<User | null> {
       .collection("users")
       .doc(decodedClaims.uid)
       .get();
+      console.log("here is the userrecords broooooooo====================",userRecord);
     if (!userRecord.exists) return null;
 
     return {
